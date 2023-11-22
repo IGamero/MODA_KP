@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import "../css/normalize.css"
+import "../src/assets/css/normalize.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
