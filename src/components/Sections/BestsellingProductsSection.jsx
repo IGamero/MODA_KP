@@ -30,18 +30,28 @@ const CustomSwiperContainer = styled.div`
 
 const CustomNextButton = styled.div`
     position: absolute;
+    display: block;
     top: 50%;
     right: 6%;
     /* z-index: 9999; */
     transform: translateY(-50%);
+
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 const CustomPrevButton = styled.div`
     position: absolute;
+    display: block;
     top: 50%;
     left: 2%;
     /* z-index: 9999; */
     transform: translateY(-50%);
+
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 const BestsellingProductsSection = () => {
@@ -79,7 +89,8 @@ const BestsellingProductsSection = () => {
 
     const slidesArray = [
         {
-            imageurl: "./src/assets/images/products/tshirt/camiseta_demo.png",
+            // imageurl: "./src/assets/images/products/tshirt/camiseta_demo.png",
+            imageurl: "https://media.game.es/COVERV2/3D_L/189/189788.png",
             productName: "Camiseta waparda",
             price: "14,99€",
             discPrice: "9,99€",
@@ -108,19 +119,38 @@ const BestsellingProductsSection = () => {
     ];
 
     return (
-        <Section>
+        <Section id="bestSelling-section">
             <SectionTitle>Productos más vendidos</SectionTitle>
 
             <CustomSwiperContainer>
                 <Swiper
+                    style={{ padding: "40px" }}
                     ref={swiperRef}
-                    className="customSwiper"
+                    // className="customSwiper"
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     watchSlidesProgress
-                    spaceBetween={50}
+                    // spaceBetween={50}
+                    breakpoints={{
+                        // Cuando el ancho de la pantalla es 640 píxeles o más
+                        0: {
+                            slidesPerView: 1,
+                            spaceBetween: 300,
+                        },
+                        // Cuando el ancho de la pantalla es 768 píxeles o más
+                        900: {
+                            slidesPerView: 2,
+                            spaceBetween: 100,
+                        },
+                        // Cuando el ancho de la pantalla es 1024 píxeles o más
+                        1400: {
+                            slidesPerView: 3,
+                            spaceBetween: 50,
+                        },
+                    }}
                     slidesPerView={3}
                     // navigation
                     loop
+                    scrollbar={{ draggable: true }} // Opciones de la barra de desplazamiento
                     onSwiper={(swiper) => console.log()}
                     onSlideChange={() => console.log()}
                 >

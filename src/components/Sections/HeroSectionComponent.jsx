@@ -42,7 +42,7 @@ const HeroSectionComponent = ({
     heroButtonText,
 }) => {
     return (
-        <Section>
+        <Section id="hero-section">
             <HeroSection
                 style={{
                     backgroundImage: `url(${imageHeroURL})`,

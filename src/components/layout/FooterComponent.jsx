@@ -20,17 +20,57 @@ const FooterMain = styled.div`
     justify-content: center;
     padding-bottom: 75px;
 `;
+
 const BlockContainer = styled.div`
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
     justify-content: space-around;
     width: 90%;
+
+    @media (max-width: 1050px) {
+        flex-direction: column;
+        margin-top: 20px;
+    }
 `;
+
+const Block = styled.div`
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+
+    @media (max-width: 1050px) {
+        /* flex-direction: column; */
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    @media (max-width: 650px) {
+        /* flex-direction: column; */
+        margin-top: 20px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+`;
+
 const FooterCard = styled.div`
     background-color: white;
-    width: 100%;
+    width: 25%;
+    min-width: 200px;
     margin: 0 10px;
     border-radius: 20px;
     padding: 15px;
+
+    @media (max-width: 1050px) {
+        width: 50%;
+        max-width: 350px;
+    }
+
+    @media (max-width: 650px) {
+        margin-top: 20px;
+    }
 `;
 
 const FooterCardTitle = styled.div`
@@ -117,10 +157,17 @@ const FooterComponent = ({ setFooterHeight }) => {
         }
     }, []);
 
+    const imageLogoURL =
+        window.location.hostname === "localhost"
+            ? "./src/assets/images/footer/logo_camisetas_2.png"
+            : "https://w7.pngwing.com/pngs/172/890/png-transparent-logo-dynamic-sign-shop-t-shirt-screen-printing-t-shirt-company-text-logo.png";
+
+    console.log(imageLogoURL);
+
     const year = new Date().getFullYear();
     return (
         <Footer ref={footerRef}>
-            <FooterMain>
+            <FooterMain style={{ backgroundImage: `url(${imageLogoURL})` }}>
                 <BlockContainer>
                     <PromoImageContainer
                         ref={promoImageRef}
@@ -128,52 +175,60 @@ const FooterComponent = ({ setFooterHeight }) => {
                     >
                         <PromoImage></PromoImage>
                     </PromoImageContainer>
-                    <FooterCard>
-                        <FooterCardTitle>Sobre nosotros</FooterCardTitle>
-                        <FooterCardBody>
-                            <CardList>
-                                <CardListElem>¿Qué es KoLocker?</CardListElem>
-                                <CardListElem>¿Quiénes somos?</CardListElem>
-                            </CardList>
-                        </FooterCardBody>
-                    </FooterCard>
-                    <FooterCard>
-                        <FooterCardTitle>Nuestras redes</FooterCardTitle>
-                        <FooterCardBody>
-                            <CardListIco>
-                                <CardListElem>
-                                    <Icon.Instagram size={30} />
-                                </CardListElem>
-                                <CardListElem>
-                                    <Icon.Twitter size={30} />
-                                </CardListElem>
-                            </CardListIco>
-                        </FooterCardBody>
-                    </FooterCard>
-                    <FooterCard>
-                        <FooterCardTitle>Aceptamos...</FooterCardTitle>
-                        <FooterCardBody>
-                            <CardListIco>
-                                <CardListElem>
-                                    <Icon.Paypal size={30} />
-                                </CardListElem>
-                                <CardListElem>
-                                    <Icon.CreditCard size={30} />
-                                </CardListElem>
-                            </CardListIco>
-                        </FooterCardBody>
-                    </FooterCard>
-                    <FooterCard>
-                        <FooterCardTitle>Trabaja con nosotros</FooterCardTitle>
-                        <FooterCardBody>
-                            <CardList>
-                                <CardListElem>Condiciones</CardListElem>
-                                <CardListElem>
-                                    Contacta con nosotros
-                                </CardListElem>
-                            </CardList>
-                        </FooterCardBody>
-                    </FooterCard>
+                    <Block style={{ marginTop: "0" }}>
+                        <FooterCard style={{ marginTop: 0 }}>
+                            <FooterCardTitle>Sobre nosotros</FooterCardTitle>
+                            <FooterCardBody>
+                                <CardList>
+                                    <CardListElem>
+                                        ¿Qué es KoLocker?
+                                    </CardListElem>
+                                    <CardListElem>¿Quiénes somos?</CardListElem>
+                                </CardList>
+                            </FooterCardBody>
+                        </FooterCard>
+                        <FooterCard>
+                            <FooterCardTitle>Nuestras redes</FooterCardTitle>
+                            <FooterCardBody>
+                                <CardListIco>
+                                    <CardListElem>
+                                        <Icon.Instagram size={30} />
+                                    </CardListElem>
+                                    <CardListElem>
+                                        <Icon.Twitter size={30} />
+                                    </CardListElem>
+                                </CardListIco>
+                            </FooterCardBody>
+                        </FooterCard>
+                    </Block>
+                    <Block>
+                        <FooterCard style={{ marginTop: 0 }}>
+                            <FooterCardTitle>Aceptamos...</FooterCardTitle>
+                            <FooterCardBody>
+                                <CardListIco>
+                                    <CardListElem>
+                                        <Icon.Paypal size={30} />
+                                    </CardListElem>
+                                    <CardListElem>
+                                        <Icon.CreditCard size={30} />
+                                    </CardListElem>
+                                </CardListIco>
+                            </FooterCardBody>
+                        </FooterCard>
+                        <FooterCard>
+                            <FooterCardTitle>
+                                Trabaja con nosotros
+                            </FooterCardTitle>
+                            <FooterCardBody>
+                                <CardList>
+                                    <CardListElem>Condiciones</CardListElem>
+                                    <CardListElem>
+                                        Contacta con nosotros
+                                    </CardListElem>
+                                </CardList>
+                            </FooterCardBody>
+                        </FooterCard>
+                    </Block>
                 </BlockContainer>
             </FooterMain>
             <FooterBanner>

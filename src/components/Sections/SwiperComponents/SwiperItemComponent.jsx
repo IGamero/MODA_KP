@@ -9,7 +9,7 @@ const Slide = styled.div`
     align-items: center;
 `;
 const SlideCard = styled.div`
-    width: 350px;
+    min-width: 350px;
     height: 450px;
     /* background-color: red; */
 `;

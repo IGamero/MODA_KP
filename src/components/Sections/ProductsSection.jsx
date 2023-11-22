@@ -14,9 +14,14 @@ const SectionTitle = styled.section`
 
 const SectionContainer = styled.div`
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 40px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 const ProductContainer = styled.div`
     width: 100%;
@@ -38,20 +43,23 @@ const ProductContainer = styled.div`
     font-size: 48px;
     -webkit-text-stroke: 2px white;
     font-weight: bolder;
+
+    @media (max-width: 768px) {
+        margin-top: 40px;
+    }
 `;
 
 const ProductsSection = () => {
     return (
-        <Section>
+        <Section id="products-section">
             <SectionTitle> &nbsp;</SectionTitle>
             <SectionContainer>
                 <ProductContainer
                     style={{
                         backgroundImage: `url(./src/assets/images/common/tshirt-banner.png)`,
                         backgroundPositionY: "10%",
+                        marginTop: 0,
                     }}
-                    // imageurl={"./src/assets/images/common/tshirt-banner.png"}
-                    // bg_y_position={"10%"}
                 >
                     Camisetas
                 </ProductContainer>
@@ -60,8 +68,6 @@ const ProductsSection = () => {
                         backgroundImage: `url(./src/assets/images/common/hoodie-banner.png)`,
                         backgroundPositionY: "47%",
                     }}
-                    // imageurl={"./src/assets/images/common/hoodie-banner.png"}
-                    // bg_y_position={"47%"}
                 >
                     Sudaderas
                 </ProductContainer>
