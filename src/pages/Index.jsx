@@ -1,6 +1,6 @@
 // import { useLoaderData } from "react-router-dom";
 // import styled from "styled-components";
-import HeroSectionComponent from "../components/sections/HeroSectionComponent";
+import HeroSectionComponent from "../components/Sections/HeroSectionComponent";
 import BestsellingProductsSection from "../components/Sections/BestsellingProductsSection";
 import ProductsSection from "../components/Sections/ProductsSection";
 
