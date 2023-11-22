@@ -89,6 +89,7 @@ const Logo = styled.div`
 `;
 
 const Buttons = styled.div`
+    opacity: 1;
     width: 40%;
     color: white;
 
@@ -98,7 +99,6 @@ const Buttons = styled.div`
     width: 30%;
 
     @media (max-width: 1050px) {
-        opacity: 1;
         /* width: 60%; */
         margin: auto;
 
@@ -214,7 +214,12 @@ const HeaderComponent = ({ setHeaderHeight }) => {
                     style={{ backgroundImage: `url(${imageLogoURL})` }}
                 />
             </MobileBlock>
-            <Buttons ref={buttonsRef} style={{ opacity: showButtons ? 1 : 0 }}>
+            <Buttons
+                ref={buttonsRef}
+                style={{
+                    opacity: windowWidth <= 1050 ? (showButtons ? 1 : 0) : 1,
+                }}
+            >
                 <ButtonsUl>
                     <SearchContainer
                         onMouseEnter={() => {
